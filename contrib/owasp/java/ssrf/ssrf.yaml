@@ -85,25 +85,3 @@ rules:
               }
     languages:
       - java
-  - id: owasp.java.ssrf.possible.import.statements
-    message: >-
-      Non-exhaustive list of Libraries that provide functionality to accept URL as a parameter
-    metadata:
-      cwe: "CWE-918: Server-Side Request Forgery (SSRF)"
-      source-rule-url: https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html
-      category: security
-    severity: INFO
-    patterns:
-      - pattern-either:
-          # Some Other libraries whose import statements are worth investigating
-          - pattern: import org.apache.commons.httpclient.HttpClient;
-          - pattern: import com.squareup.okhttp.OkHttpClient;
-          - pattern: import org.apache.http.client.fluent.Request;
-          - pattern: import org.apache.http.client.methods.HttpGet;
-          - pattern: import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
-          - pattern: import org.jsoup.Jsoup;
-          - pattern: import javax.imageio.ImageIO;
-          - pattern: import java.net.URI;
-          - pattern: import java.net.URL;
-    languages:
-      - java
